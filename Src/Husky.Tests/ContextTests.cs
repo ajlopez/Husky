@@ -16,5 +16,15 @@
 
             Assert.IsNull(ctx.GetValue("foo"));
         }
+
+        [TestMethod]
+        public void SetAndGetValue()
+        {
+            var ctx = new Context();
+
+            ctx.SetValue("foo", 42);
+
+            Assert.AreEqual(42, ctx.GetValue("foo"));
+        }
     }
 }
