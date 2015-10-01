@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class NameExpression
+    public class NameExpression : IExpression
     {
         private string name;
 
