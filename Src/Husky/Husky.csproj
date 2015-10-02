@@ -44,6 +44,7 @@
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Expressions\NameExpression.cs" />
+    <Compile Include="Language\NamedType.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
