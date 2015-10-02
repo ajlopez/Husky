@@ -1,11 +1,11 @@
 ﻿namespace Husky.Tests.Language
 {
     using System;
-    using System.Text;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Text;
     using Husky.Language;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class NamedTypeTests
