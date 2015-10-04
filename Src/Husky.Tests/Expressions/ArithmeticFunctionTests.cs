@@ -12,6 +12,8 @@
         public void AddIntegers()
         {
             Assert.AreEqual(3, Add(1, 2));
+            Assert.AreEqual(-1, Add(1, -2));
+            Assert.AreEqual(42, Add(44, -2));
         }
 
         private static int Add(int x, int y) 
