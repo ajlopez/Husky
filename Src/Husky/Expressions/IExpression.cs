@@ -6,5 +6,7 @@
     public interface IExpression
     {
         IType Type { get; }
+
+        IExpression Reduce();
     }
 }

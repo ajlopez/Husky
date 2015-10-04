@@ -16,5 +16,10 @@
         }
 
         public IType Type { get { return this.type; } }
+
+        public IExpression Reduce()
+        {
+            return this;
+        }
     }
 }

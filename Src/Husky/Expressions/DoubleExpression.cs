@@ -14,5 +14,10 @@
         }
 
         public override IType Type { get { return DoubleType.Instance; } }
+
+        public IExpression Reduce()
+        {
+            return this;
+        }
     }
 }

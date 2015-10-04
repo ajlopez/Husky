@@ -43,6 +43,11 @@
             return result;
         }
 
+        public IExpression Reduce()
+        {
+            return this;
+        }
+
         private class Mapper
         {
             private IExpression from;

@@ -21,5 +21,10 @@ using Husky.Types;
         }
 
         public IType Type { get { return type; } }
+
+        public IExpression Reduce()
+        {
+            return this;
+        }
     }
 }

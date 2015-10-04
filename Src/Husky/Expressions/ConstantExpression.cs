@@ -33,6 +33,11 @@
         public override int GetHashCode()
         {
             return this.value.GetHashCode();
-        } 
+        }
+
+        public IExpression Reduce()
+        {
+            return this;
+        }
     }
 }
