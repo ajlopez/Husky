@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class IntegerType
+    public class IntegerType : IType
     {
         private static IntegerType instance = new IntegerType();
 
