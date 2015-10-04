@@ -18,6 +18,7 @@
 
             Assert.AreEqual(42, expr.Value);
             Assert.AreSame(IntegerType.Instance, expr.Type);
+            Assert.AreSame(expr, expr.Reduce());
         }
 
         [TestMethod]
@@ -27,6 +28,7 @@
 
             Assert.AreEqual(3.14159, expr.Value);
             Assert.AreSame(DoubleType.Instance, expr.Type);
+            Assert.AreSame(expr, expr.Reduce());
         }
 
         [TestMethod]

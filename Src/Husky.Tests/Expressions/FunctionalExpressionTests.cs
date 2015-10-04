@@ -7,6 +7,7 @@
     using Husky.Expressions;
     using Husky.Functions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Husky.Types;
 
     [TestClass]
     public class FunctionalExpressionTests
@@ -17,6 +18,7 @@
             var expr = new FunctionalExpression(new AddIntegersFunction(), new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
 
             Assert.AreEqual(new IntegerExpression(3), expr.Reduce());
+            Assert.AreSame(IntegerType.Instance, expr.Type);
         }
     }
 }

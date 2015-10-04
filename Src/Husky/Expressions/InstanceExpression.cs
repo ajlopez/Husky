@@ -18,7 +18,7 @@
             this.exprs = exprs;
         }
 
-        public IType Type { get { return this.consfn.Type; } }
+        public IType Type { get { return this.consfn.InstanceType; } }
 
         public IExpression Reduce()
         {

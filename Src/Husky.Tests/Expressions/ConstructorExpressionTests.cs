@@ -14,6 +14,7 @@
             var cons = new ConstructorExpression(IntegerType.Instance);
 
             Assert.AreSame(IntegerType.Instance, cons.Type);
+            Assert.AreSame(cons, cons.Reduce());
         }
     }
 }
