@@ -59,8 +59,6 @@
                 this.to = to;
             }
 
-            public IExpression From { get { return this.from; } }
-
             public IExpression To { get { return this.to; } }
 
             public bool Match(IExpression expr)

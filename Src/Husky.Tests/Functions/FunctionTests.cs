@@ -12,7 +12,11 @@
         [TestMethod]
         public void ApplyExpression()
         {
-            var func = new Function(new MapType(IntegerType.Instance, IntegerType.Instance));
+            var type = new MapType(IntegerType.Instance, IntegerType.Instance);
+            var func = new Function(type);
+
+            Assert.AreSame(func, func.Reduce());
+            Assert.AreSame(type, func.Type);
 
             func.Map(new IntegerExpression(1), new IntegerExpression(2));
 

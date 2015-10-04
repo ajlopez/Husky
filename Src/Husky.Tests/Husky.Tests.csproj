@@ -50,8 +50,8 @@
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Expressions\ConstructorExpressionTests.cs" />
     <Compile Include="Expressions\FunctionalExpressionTests.cs" />
+    <Compile Include="Functions\ConstructorFunctionTests.cs" />
     <Compile Include="Functions\FunctionTests.cs" />
-    <Compile Include="Language\NamedTypeTests.cs" />
     <Compile Include="MachineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\DoubleTypeTests.cs" />
