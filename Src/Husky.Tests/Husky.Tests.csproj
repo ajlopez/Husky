@@ -48,6 +48,7 @@
     <Compile Include="ContextTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Expressions\ConstructorExpressionTests.cs" />
+    <Compile Include="Functions\FunctionTests.cs" />
     <Compile Include="Language\NamedTypeTests.cs" />
     <Compile Include="MachineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,5 +18,21 @@
         public T Value { get { return this.value; } }
 
         public abstract IType Type { get; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (!(obj is ConstantExpression<T>))
+                return false;
+
+            return ((ConstantExpression<T>)obj).Value.Equals(this.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.value.GetHashCode();
+        } 
     }
 }
