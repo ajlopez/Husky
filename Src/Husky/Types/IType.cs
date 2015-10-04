@@ -7,5 +7,6 @@
 
     public interface IType
     {
+        bool Match(IType type);
     }
 }

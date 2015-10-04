@@ -14,5 +14,10 @@
         }
 
         public static DoubleType Instance { get { return instance; } }
+
+        public bool Match(IType type)
+        {
+            return this == type;
+        }
     }
 }
