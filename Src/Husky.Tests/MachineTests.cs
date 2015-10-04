@@ -25,5 +25,17 @@
             Assert.IsInstanceOfType(value, typeof(IntegerType));
             Assert.AreSame(IntegerType.Instance, value);
         }
+
+        [TestMethod]
+        public void HasDoubleType()
+        {
+            Machine machine = new Machine();
+
+            object value = machine.Context.GetValue("Double");
+
+            Assert.IsNotNull(value);
+            Assert.IsInstanceOfType(value, typeof(DoubleType));
+            Assert.AreSame(DoubleType.Instance, value);
+        }
     }
 }

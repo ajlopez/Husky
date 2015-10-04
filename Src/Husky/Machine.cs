@@ -14,6 +14,7 @@
         public Machine()
         {
             this.context.SetValue("Integer", IntegerType.Instance);
+            this.context.SetValue("Double", DoubleType.Instance);
         }
 
         public Context Context { get { return this.context; } }
