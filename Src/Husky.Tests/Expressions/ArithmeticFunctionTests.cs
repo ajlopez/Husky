@@ -16,6 +16,16 @@
             Assert.AreEqual(42, Add(44, -2));
         }
 
+        [TestMethod]
+        public void AddThreeIntegersUsingFunctionalExpressions()
+        {
+            IExpression fn = new AddIntegersFunction();
+
+            IExpression expr = new FunctionalExpression(fn, new IExpression[] { new FunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) }), new IntegerExpression(3) });
+
+            Assert.AreEqual(new IntegerExpression(6), expr.Reduce());
+        }
+
         private static int Add(int x, int y) 
         {
             IExpression exprx = new IntegerExpression(x);

@@ -17,7 +17,7 @@ using Husky.Types;
 
         public IExpression Apply(IList<IExpression> exprs)
         {
-            return new IntegerExpression(((IntegerExpression)exprs[0]).Value + ((IntegerExpression)exprs[1]).Value); 
+            return new IntegerExpression(((IntegerExpression)(exprs[0].Reduce())).Value + ((IntegerExpression)(exprs[1].Reduce())).Value); 
         }
 
         public IType Type { get { return type; } }
