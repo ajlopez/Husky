@@ -46,6 +46,7 @@
     <Compile Include="Expressions\DoubleExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Expressions\IntegerExpression.cs" />
+    <Compile Include="Functions\AddIntegersFunction.cs" />
     <Compile Include="Functions\Function.cs" />
     <Compile Include="Language\NamedType.cs" />
     <Compile Include="Machine.cs" />
