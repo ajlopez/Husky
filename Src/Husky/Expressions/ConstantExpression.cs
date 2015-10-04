@@ -4,21 +4,19 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Husky.Types;
 
-    public class ConstantExpression : IExpression
+    public abstract class ConstantExpression<T> : IExpression
     {
-        private object value;
+        private T value;
 
-        public ConstantExpression(object value)
+        public ConstantExpression(T value)
         {
             this.value = value;
         }
 
-        public object Value { get { return this.value; } }
+        public T Value { get { return this.value; } }
 
-        public object Evaluate(Context ctx)
-        {
-            return this.value;
-        }
+        public abstract IType Type { get; }
     }
 }

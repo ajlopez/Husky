@@ -1,9 +1,10 @@
 ﻿namespace Husky.Expressions
 {
     using System;
+    using Husky.Types;
 
     public interface IExpression
     {
-        object Evaluate(Husky.Context ctx);
+        IType Type { get; }
     }
 }

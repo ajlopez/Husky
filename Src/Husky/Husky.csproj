@@ -42,8 +42,9 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Expressions\DoubleExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
-    <Compile Include="Expressions\NameExpression.cs" />
+    <Compile Include="Expressions\IntegerExpression.cs" />
     <Compile Include="Language\Constructor.cs" />
     <Compile Include="Language\NamedType.cs" />
     <Compile Include="Machine.cs" />

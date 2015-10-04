@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="ContextTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
-    <Compile Include="Expressions\NameExpressionTests.cs" />
     <Compile Include="Language\ConstructorTests.cs" />
     <Compile Include="Language\NamedTypeTests.cs" />
     <Compile Include="MachineTests.cs" />

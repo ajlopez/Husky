@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using Husky.Expressions;
+    using Husky.Types;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -13,10 +14,19 @@
         [TestMethod]
         public void GetIntegerConstant()
         {
-            var expr = new ConstantExpression(42);
+            var expr = new IntegerExpression(42);
 
             Assert.AreEqual(42, expr.Value);
-            Assert.AreEqual(42, expr.Evaluate(null));
+            Assert.AreSame(IntegerType.Instance, expr.Type);
+        }
+
+        [TestMethod]
+        public void GetDoubleConstant()
+        {
+            var expr = new DoubleExpression(3.14159);
+
+            Assert.AreEqual(3.14159, expr.Value);
+            Assert.AreSame(DoubleType.Instance, expr.Type);
         }
     }
 }
