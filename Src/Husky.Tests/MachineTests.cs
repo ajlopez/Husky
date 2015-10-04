@@ -1,10 +1,6 @@
 ﻿namespace Husky.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Husky.Language;
+    using Husky.Types;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -19,15 +15,15 @@
         }
 
         [TestMethod]
-        public void InitialTypes()
+        public void HasIntegerType()
         {
             Machine machine = new Machine();
 
             object value = machine.Context.GetValue("Integer");
 
             Assert.IsNotNull(value);
-            Assert.IsInstanceOfType(value, typeof(NamedType));
-            Assert.AreEqual("Integer", ((NamedType)value).Name);
+            Assert.IsInstanceOfType(value, typeof(IntegerType));
+            Assert.AreSame(IntegerType.Instance, value);
         }
     }
 }

@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using Husky.Language;
+    using Husky.Types;
 
     public class Machine
     {
@@ -12,7 +13,7 @@
 
         public Machine()
         {
-            this.context.SetValue("Integer", new NamedType("Integer"));
+            this.context.SetValue("Integer", IntegerType.Instance);
         }
 
         public Context Context { get { return this.context; } }
