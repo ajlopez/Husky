@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextTests.cs" />
-    <Compile Include="Expressions\ArithmeticFunctionTests.cs" />
+    <Compile Include="Functions\ArithmeticFunctionTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Expressions\ConstructorExpressionTests.cs" />
     <Compile Include="Expressions\FunctionalExpressionTests.cs" />

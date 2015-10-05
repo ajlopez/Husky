@@ -50,6 +50,7 @@
     <Compile Include="Expressions\IntegerExpression.cs" />
     <Compile Include="Functions\AddIntegersFunction.cs" />
     <Compile Include="Functions\ConstructorFunction.cs" />
+    <Compile Include="Functions\SubtractIntegersFunction.cs" />
     <Compile Include="Functions\Function.cs" />
     <Compile Include="Functions\IFunction.cs" />
     <Compile Include="Machine.cs" />
