@@ -24,6 +24,8 @@
                 this.type = ((MapType)this.type).ToType;
         }
 
+        public IType Type { get { return this.type; } }
+
         public IExpression Reduce()
         {
             IFunction fn = (IFunction)this.head.Reduce();
@@ -33,7 +35,5 @@
 
             return ((IFunction)this.head.Reduce()).Apply(this.args);
         }
-
-        public IType Type { get { return this.type; } }
     }
 }

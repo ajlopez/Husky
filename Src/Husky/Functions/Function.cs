@@ -17,12 +17,12 @@
             this.type = type;
         }
 
+        public IType Type { get { return this.type; } }
+
         public void Map(IExpression from, IExpression to)
         {
             this.mappers.Add(new Mapper(from, to));
         }
-
-        public IType Type { get { return this.type; } }
 
         public bool HasMappers()
         {

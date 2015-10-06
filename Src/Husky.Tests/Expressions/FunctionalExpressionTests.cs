@@ -6,8 +6,8 @@
     using System.Text;
     using Husky.Expressions;
     using Husky.Functions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Husky.Types;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class FunctionalExpressionTests

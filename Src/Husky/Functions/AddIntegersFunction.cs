@@ -15,12 +15,12 @@
         {
         }
 
+        public IType Type { get { return type; } }
+
         public IExpression Apply(IList<IExpression> exprs)
         {
-            return new IntegerExpression(((IntegerExpression)(exprs[0].Reduce())).Value + ((IntegerExpression)(exprs[1].Reduce())).Value); 
+            return new IntegerExpression(((IntegerExpression)exprs[0].Reduce()).Value + ((IntegerExpression)exprs[1].Reduce()).Value); 
         }
-
-        public IType Type { get { return type; } }
 
         public IExpression Reduce()
         {
