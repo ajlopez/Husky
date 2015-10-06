@@ -36,5 +36,10 @@
         {
             return new InstanceExpression(this, exprs);
         }
+
+        public bool HasMappers()
+        {
+            return true;
+        }
     }
 }

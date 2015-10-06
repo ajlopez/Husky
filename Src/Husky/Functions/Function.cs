@@ -24,6 +24,11 @@
 
         public IType Type { get { return this.type; } }
 
+        public bool HasMappers()
+        {
+            return this.mappers.Count > 0;
+        }
+
         public IExpression Apply(IExpression expr)
         {
             foreach (var mapper in this.mappers)

@@ -9,5 +9,7 @@
     public interface IFunction : IExpression
     {
         IExpression Apply(IList<IExpression> exprs);
+
+        bool HasMappers();
     }
 }

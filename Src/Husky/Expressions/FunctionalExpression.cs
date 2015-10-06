@@ -26,6 +26,11 @@
 
         public IExpression Reduce()
         {
+            IFunction fn = (IFunction)this.head.Reduce();
+
+            if (!fn.HasMappers())
+                return this;
+
             return ((IFunction)this.head.Reduce()).Apply(this.args);
         }
 

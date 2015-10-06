@@ -20,5 +20,15 @@
             Assert.AreEqual(new IntegerExpression(3), expr.Reduce());
             Assert.AreSame(IntegerType.Instance, expr.Type);
         }
+
+        [TestMethod]
+        public void FunctionalExpressionWithFunctionWithoutMappers()
+        {
+            IFunction fn = new Function(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)));
+
+            var expr = new FunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
+
+            Assert.AreSame(expr, expr.Reduce());
+        }
     }
 }

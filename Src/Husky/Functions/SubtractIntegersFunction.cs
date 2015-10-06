@@ -26,5 +26,10 @@
         {
             return this;
         }
+
+        public bool HasMappers()
+        {
+            return true;
+        }
     }
 }

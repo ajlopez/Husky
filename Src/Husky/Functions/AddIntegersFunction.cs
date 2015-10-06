@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     using Husky.Expressions;
-using Husky.Types;
+    using Husky.Types;
 
     public class AddIntegersFunction : IFunction
     {
@@ -25,6 +25,11 @@ using Husky.Types;
         public IExpression Reduce()
         {
             return this;
+        }
+
+        public bool HasMappers()
+        {
+            return true;
         }
     }
 }

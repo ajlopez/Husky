@@ -14,10 +14,5 @@
         }
 
         public override IType Type { get { return IntegerType.Instance; } }
-
-        public IExpression Reduce()
-        {
-            return this;
-        }
     }
 }
