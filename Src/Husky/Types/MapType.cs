@@ -30,5 +30,24 @@
 
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return this.fromtype.GetHashCode() * 17 + this.totype.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (!(obj is MapType))
+                return false;
+
+            MapType mtype = (MapType)obj;
+
+            return this.fromtype.Equals(mtype.fromtype) && this.totype.Equals(mtype.totype);
+        }
+
     }
 }

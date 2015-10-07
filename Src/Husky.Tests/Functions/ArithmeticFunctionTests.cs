@@ -4,6 +4,7 @@
     using Husky.Expressions;
     using Husky.Functions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Husky.Types;
 
     [TestClass]
     public class ArithmeticFunctionTests
@@ -22,6 +23,26 @@
             Assert.AreEqual(-1, Subtract(1, 2));
             Assert.AreEqual(3, Subtract(1, -2));
             Assert.AreEqual(42, Subtract(44, 2));
+        }
+
+        [TestMethod]
+        public void AddIntegersFunctionMethods()
+        {
+            var fn = new AddIntegersFunction();
+
+            Assert.IsTrue(fn.HasMappers());
+            Assert.AreSame(fn, fn.Reduce());
+            Assert.AreEqual(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)), fn.Type);
+        }
+
+        [TestMethod]
+        public void SubtractIntegersFunctionMethods()
+        {
+            var fn = new SubtractIntegersFunction();
+
+            Assert.IsTrue(fn.HasMappers());
+            Assert.AreSame(fn, fn.Reduce());
+            Assert.AreEqual(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)), fn.Type);
         }
 
         [TestMethod]

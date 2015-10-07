@@ -17,6 +17,26 @@
         }
 
         [TestMethod]
+        public void Equality()
+        {
+            var type1 = new MapType(IntegerType.Instance, IntegerType.Instance);
+            var type2 = new MapType(IntegerType.Instance, DoubleType.Instance);
+            var type3 = new MapType(IntegerType.Instance, IntegerType.Instance);
+
+            Assert.IsFalse(type1.Equals(null));
+            Assert.IsFalse(type1.Equals(42));
+            Assert.IsFalse(type1.Equals("foo"));
+
+            Assert.IsFalse(type1.Equals(type2));
+            Assert.IsFalse(type2.Equals(type1));
+
+            Assert.IsTrue(type1.Equals(type1));
+            Assert.IsTrue(type1.Equals(type3));
+            Assert.IsTrue(type3.Equals(type1));
+            Assert.AreEqual(type1.GetHashCode(), type3.GetHashCode());
+        }
+
+        [TestMethod]
         public void Match()
         {
             var type = new MapType(IntegerType.Instance, DoubleType.Instance);
