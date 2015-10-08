@@ -63,6 +63,17 @@
         }
 
         [TestMethod]
+        public void ReduceToItselfItNoMap()
+        {
+            var vexpr = new ValueExpression(IntegerType.Instance);
+
+            var result = vexpr.Reduce();
+
+            Assert.IsNotNull(result);
+            Assert.AreSame(result, vexpr);
+        }
+
+        [TestMethod]
         public void InvalidOperationIfMapToNonCompatibleType()
         {
             var expr = new DoubleExpression(3.14159);

@@ -23,6 +23,9 @@
 
         public IExpression Reduce()
         {
+            if (this.expression == null)
+                return this;
+
             if (this.reduced != null)
                 return this.reduced;
 
