@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
-    <Compile Include="Expressions\ConstructorExpression.cs" />
     <Compile Include="Expressions\DoubleExpression.cs" />
     <Compile Include="Expressions\FunctionalExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />

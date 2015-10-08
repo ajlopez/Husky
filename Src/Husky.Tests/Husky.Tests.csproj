@@ -49,7 +49,6 @@
     <Compile Include="Expressions\ValueExpressionTests.cs" />
     <Compile Include="Functions\ArithmeticFunctionTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
-    <Compile Include="Expressions\ConstructorExpressionTests.cs" />
     <Compile Include="Expressions\FunctionalExpressionTests.cs" />
     <Compile Include="Functions\ConstructorFunctionTests.cs" />
     <Compile Include="Functions\FunctionTests.cs" />
