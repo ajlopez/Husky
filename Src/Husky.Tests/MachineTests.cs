@@ -2,6 +2,7 @@
 {
     using Husky.Types;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Husky.Expressions;
 
     [TestClass]
     public class MachineTests
@@ -36,6 +37,29 @@
             Assert.IsNotNull(value);
             Assert.IsInstanceOfType(value, typeof(DoubleType));
             Assert.AreSame(DoubleType.Instance, value);
+        }
+
+        [TestMethod]
+        public void HasBooleanTypeAndValues()
+        {
+            Machine machine = new Machine();
+
+            var tbool = machine.Context.GetValue("Boolean");
+
+            Assert.IsNotNull(tbool);
+            Assert.IsInstanceOfType(tbool, typeof(IType));
+
+            var vtrue = machine.Context.GetValue("True");
+
+            Assert.IsNotNull(vtrue);
+            Assert.IsInstanceOfType(vtrue, typeof(ValueExpression));
+            Assert.AreSame(tbool, ((IExpression)vtrue).Type);
+
+            var vfalse = machine.Context.GetValue("False");
+
+            Assert.IsNotNull(vfalse);
+            Assert.IsInstanceOfType(vfalse, typeof(ValueExpression));
+            Assert.AreSame(tbool, ((IExpression)vfalse).Type);
         }
     }
 }
