@@ -46,6 +46,7 @@
     <Compile Include="Expressions\FunctionalExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Expressions\IntegerExpression.cs" />
+    <Compile Include="Expressions\NameExpression.cs" />
     <Compile Include="Expressions\ValueExpression.cs" />
     <Compile Include="Functions\AddIntegersFunction.cs" />
     <Compile Include="Functions\SubtractIntegersFunction.cs" />
