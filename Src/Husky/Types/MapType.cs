@@ -33,7 +33,7 @@
 
         public override int GetHashCode()
         {
-            return this.fromtype.GetHashCode() * 17 + this.totype.GetHashCode();
+            return (this.fromtype.GetHashCode() * 17) + this.totype.GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -48,6 +48,5 @@
 
             return this.fromtype.Equals(mtype.fromtype) && this.totype.Equals(mtype.totype);
         }
-
     }
 }

@@ -1,13 +1,13 @@
 ﻿namespace Husky.Tests.Expressions
 {
     using System;
-    using System.Text;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Text;
     using Husky.Expressions;
-    using Husky.Types;
     using Husky.Functions;
+    using Husky.Types;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class ValueExpressionTests

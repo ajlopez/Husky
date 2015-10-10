@@ -1,8 +1,8 @@
 ﻿namespace Husky.Tests
 {
+    using Husky.Expressions;
     using Husky.Types;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Husky.Expressions;
 
     [TestClass]
     public class MachineTests
