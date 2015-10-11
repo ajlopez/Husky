@@ -22,6 +22,25 @@
         }
 
         [TestMethod]
+        public void MatchUndefinedValue()
+        {
+            var vexpr = new ValueExpression(IntegerType.Instance);
+
+            Assert.IsTrue(vexpr.Match(vexpr, null));
+        }
+
+        [TestMethod]
+        public void MatchDefinedValue()
+        {
+            var vexpr = new ValueExpression(IntegerType.Instance);
+
+            vexpr.MapTo(new IntegerExpression(42));
+
+            Assert.IsTrue(vexpr.Match(new IntegerExpression(42), null));
+            Assert.IsFalse(vexpr.Match(new IntegerExpression(1), null));
+        }
+
+        [TestMethod]
         public void MapToExpression()
         {
             var expr = new IntegerExpression(42);

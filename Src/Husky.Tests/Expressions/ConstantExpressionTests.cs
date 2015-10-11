@@ -22,6 +22,22 @@
         }
 
         [TestMethod]
+        public void MatchIntegerConstant()
+        {
+            var expr = new IntegerExpression(42);
+            var expr1 = new IntegerExpression(42);
+            var expr2 = new IntegerExpression(3);
+            var expr3 = new DoubleExpression(1.2);
+
+            Assert.IsTrue(expr.Match(expr, null));
+            Assert.IsTrue(expr.Match(expr1, null));
+
+            Assert.IsFalse(expr.Match(null, null));
+            Assert.IsFalse(expr.Match(expr2, null));
+            Assert.IsFalse(expr.Match(expr3, null));
+        }
+
+        [TestMethod]
         public void GetDoubleConstant()
         {
             var expr = new DoubleExpression(3.14159);
@@ -29,6 +45,22 @@
             Assert.AreEqual(3.14159, expr.Value);
             Assert.AreSame(DoubleType.Instance, expr.Type);
             Assert.AreSame(expr, expr.Reduce());
+        }
+
+        [TestMethod]
+        public void MatchDoubleConstant()
+        {
+            var expr = new DoubleExpression(1.2);
+            var expr1 = new DoubleExpression(1.2);
+            var expr2 = new DoubleExpression(3.4);
+            var expr3 = new IntegerExpression(42);
+
+            Assert.IsTrue(expr.Match(expr, null));
+            Assert.IsTrue(expr.Match(expr1, null));
+
+            Assert.IsFalse(expr.Match(null, null));
+            Assert.IsFalse(expr.Match(expr2, null));
+            Assert.IsFalse(expr.Match(expr3, null));
         }
 
         [TestMethod]

@@ -24,5 +24,20 @@
         {
             throw new NotImplementedException();
         }
+
+        public bool Match(IExpression expr, Context ctx)
+        {
+            var result = ctx.GetValue(this.name);
+
+            if (result != null && result is IExpression)
+                return ((IExpression)result).Match(expr, ctx);
+
+            if (result != null)
+                return false;
+
+            ctx.SetValue(this.name, expr);
+
+            return true;
+        }
     }
 }

@@ -34,6 +34,14 @@
             return this.reduced;
         }
 
+        public bool Match(IExpression expr, Context ctx)
+        {
+            if (this.expression == null)
+                return this.Equals(expr);
+
+            return this.expression.Match(expr, ctx);
+        }
+
         public void MapTo(IExpression expression)
         {
             if (!this.type.Equals(expression.Type))

@@ -53,6 +53,11 @@
             return this;
         }
 
+        public bool Match(IExpression expr, Context ctx)
+        {
+            return this.Equals(expr);
+        }
+
         private class Mapper
         {
             private IExpression from;

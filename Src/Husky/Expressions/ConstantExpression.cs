@@ -39,5 +39,16 @@
         {
             return this;
         }
+
+        public bool Match(IExpression expr, Context ctx)
+        {
+            if (expr == null)
+                return false;
+
+            if (!expr.GetType().Equals(this.GetType()))
+                return false;
+
+            return ((ConstantExpression<T>)expr).value.Equals(this.value);
+        }
     }
 }

@@ -31,5 +31,10 @@
         {
             return true;
         }
+
+        public bool Match(IExpression expr, Context ctx)
+        {
+            return expr != null && expr is AddIntegersFunction;
+        }
     }
 }

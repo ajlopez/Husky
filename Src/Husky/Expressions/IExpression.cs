@@ -8,5 +8,7 @@
         IType Type { get; }
 
         IExpression Reduce();
+
+        bool Match(IExpression expr, Context ctx);
     }
 }

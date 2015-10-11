@@ -35,5 +35,28 @@
 
             return ((IFunction)this.head.Reduce()).Apply(this.args);
         }
+
+        public bool Match(IExpression expr, Context ctx)
+        {
+            if (expr == null)
+                return false;
+
+            if (!(expr is FunctionalExpression))
+                return false;
+
+            var fexpr = (FunctionalExpression)expr;
+
+            if (this.args.Count != fexpr.args.Count)
+                return false;
+
+            if (!this.head.Match(fexpr.head, ctx))
+                return false;
+
+            for (int k = 0; k < this.args.Count; k++)
+                if (!this.args[k].Match(fexpr.args[k], ctx))
+                    return false;
+
+            return true;
+        }
     }
 }

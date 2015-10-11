@@ -24,6 +24,18 @@
         }
 
         [TestMethod]
+        public void MatchFunction()
+        {
+            var type = new MapType(IntegerType.Instance, IntegerType.Instance);
+            var func = new Function(type);
+            var func2 = new Function(type);
+
+            Assert.IsTrue(func.Match(func, null));
+            Assert.IsFalse(func.Match(null, null));
+            Assert.IsFalse(func.Match(func2, null));
+        }
+
+        [TestMethod]
         public void ApplyExpressions()
         {
             var func = new Function(new MapType(IntegerType.Instance, IntegerType.Instance));

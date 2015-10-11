@@ -18,6 +18,15 @@
         }
 
         [TestMethod]
+        public void Match()
+        {
+            Assert.IsTrue((new AddIntegersFunction()).Match(new AddIntegersFunction(), null));
+            Assert.IsTrue((new SubtractIntegersFunction()).Match(new SubtractIntegersFunction(), null));
+            Assert.IsFalse((new AddIntegersFunction()).Match(new SubtractIntegersFunction(), null));
+            Assert.IsFalse((new SubtractIntegersFunction()).Match(new AddIntegersFunction(), null));
+        }
+
+        [TestMethod]
         public void SubtractIntegers()
         {
             Assert.AreEqual(-1, Subtract(1, 2));
