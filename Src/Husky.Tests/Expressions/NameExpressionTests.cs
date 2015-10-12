@@ -23,7 +23,7 @@
         public void MatchUnboundNameExpression()
         {
             var expr = new NameExpression("a");
-            var ctx = new Context();
+            var ctx = new Context<IExpression>();
             var cexpr = new IntegerExpression(42);
 
             Assert.IsTrue(expr.Match(cexpr, ctx));
@@ -35,7 +35,7 @@
         public void MatchBoundNameExpression()
         {
             var expr = new NameExpression("a");
-            var ctx = new Context();
+            var ctx = new Context<IExpression>();
             ctx.SetValue("a", new IntegerExpression(42));
 
             Assert.IsTrue(expr.Match(new IntegerExpression(42), ctx));

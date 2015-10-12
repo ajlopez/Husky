@@ -40,7 +40,7 @@
             return this;
         }
 
-        public bool Match(IExpression expr, Context ctx)
+        public bool Match(IExpression expr, Context<IExpression> ctx)
         {
             if (expr == null)
                 return false;

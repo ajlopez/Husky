@@ -32,7 +32,7 @@
             return true;
         }
 
-        public bool Match(IExpression expr, Context ctx)
+        public bool Match(IExpression expr, Context<IExpression> ctx)
         {
             return expr != null && expr is SubtractIntegersFunction;
         }

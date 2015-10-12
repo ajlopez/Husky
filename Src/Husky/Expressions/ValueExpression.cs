@@ -34,7 +34,7 @@
             return this.reduced;
         }
 
-        public bool Match(IExpression expr, Context ctx)
+        public bool Match(IExpression expr, Context<IExpression> ctx)
         {
             if (this.expression == null)
                 return this.Equals(expr);

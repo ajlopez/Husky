@@ -9,6 +9,6 @@
 
         IExpression Reduce();
 
-        bool Match(IExpression expr, Context ctx);
+        bool Match(IExpression expr, Context<IExpression> ctx);
     }
 }

@@ -36,7 +36,7 @@
             return ((IFunction)this.head.Reduce()).Apply(this.args);
         }
 
-        public bool Match(IExpression expr, Context ctx)
+        public bool Match(IExpression expr, Context<IExpression> ctx)
         {
             if (expr == null)
                 return false;

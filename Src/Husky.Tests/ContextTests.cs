@@ -12,7 +12,7 @@
         [TestMethod]
         public void GetUndefinedValueAsNull()
         {
-            var ctx = new Context();
+            var ctx = new Context<object>();
 
             Assert.IsNull(ctx.GetValue("foo"));
         }
@@ -20,7 +20,7 @@
         [TestMethod]
         public void SetAndGetValue()
         {
-            var ctx = new Context();
+            var ctx = new Context<object>();
 
             ctx.SetValue("foo", 42);
 

@@ -9,20 +9,23 @@
 
     public class Machine
     {
-        private Context context = new Context();
+        private Context<IExpression> expressionContext = new Context<IExpression>();
+        private Context<IType> typeContext = new Context<IType>();
 
         public Machine()
         {
-            this.context.SetValue("Integer", IntegerType.Instance);
-            this.context.SetValue("Double", DoubleType.Instance);
+            this.typeContext.SetValue("Integer", IntegerType.Instance);
+            this.typeContext.SetValue("Double", DoubleType.Instance);
 
             var tbool = new BaseType();
 
-            this.context.SetValue("Boolean", tbool);
-            this.context.SetValue("False", new ValueExpression(tbool));
-            this.context.SetValue("True", new ValueExpression(tbool));
+            this.typeContext.SetValue("Boolean", tbool);
+            this.expressionContext.SetValue("False", new ValueExpression(tbool));
+            this.expressionContext.SetValue("True", new ValueExpression(tbool));
         }
 
-        public Context Context { get { return this.context; } }
+        public Context<IExpression> ExpressionContext { get { return this.expressionContext; } }
+
+        public Context<IType> TypeContext { get { return this.typeContext; } }
     }
 }

@@ -5,21 +5,21 @@
     using System.Linq;
     using System.Text;
 
-    public class Context
+    public class Context<T>
     {
-        private Dictionary<string, object> values = new Dictionary<string, object>();
+        private Dictionary<string, T> values = new Dictionary<string, T>();
 
-        public void SetValue(string name, object value)
+        public void SetValue(string name, T value)
         {
             this.values[name] = value;
         }
 
-        public object GetValue(string name)
+        public T GetValue(string name)
         {
             if (this.values.ContainsKey(name))
                 return this.values[name];
 
-            return null;
+            return default(T);
         }
     }
 }

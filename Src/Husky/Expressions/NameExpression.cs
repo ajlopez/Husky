@@ -25,12 +25,12 @@
             throw new NotImplementedException();
         }
 
-        public bool Match(IExpression expr, Context ctx)
+        public bool Match(IExpression expr, Context<IExpression> ctx)
         {
             var result = ctx.GetValue(this.name);
 
-            if (result != null && result is IExpression)
-                return ((IExpression)result).Match(expr, ctx);
+            if (result != null)
+                return result.Match(expr, ctx);
 
             if (result != null)
                 return false;
