@@ -33,7 +33,7 @@
             if (!fn.HasMappers())
                 return this;
 
-            return ((IFunction)this.head.Reduce()).Apply(this.args);
+            return fn.Apply(this.args);
         }
 
         public bool Match(IExpression expr, Context<IExpression> ctx)
