@@ -21,6 +21,9 @@
 
         public void Map(IExpression from, IExpression to)
         {
+            if (!this.type.FromType.Match(from.Type) || !this.type.ToType.Match(to.Type))
+                throw new InvalidOperationException("Non compatible type");
+
             this.mappers.Add(new Mapper(from, to));
         }
 

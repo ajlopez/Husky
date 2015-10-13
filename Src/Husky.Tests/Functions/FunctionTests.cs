@@ -24,6 +24,42 @@
         }
 
         [TestMethod]
+        public void MapInvalidFromExpression()
+        {
+            var type = new MapType(IntegerType.Instance, IntegerType.Instance);
+            var func = new Function(type);
+
+            try
+            {
+                func.Map(new DoubleExpression(1.2), new IntegerExpression(2));
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("Non compatible type", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void MapInvalidToExpression()
+        {
+            var type = new MapType(IntegerType.Instance, IntegerType.Instance);
+            var func = new Function(type);
+
+            try
+            {
+                func.Map(new IntegerExpression(1), new DoubleExpression(1.2));
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("Non compatible type", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void MatchFunction()
         {
             var type = new MapType(IntegerType.Instance, IntegerType.Instance);
