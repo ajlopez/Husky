@@ -36,6 +36,22 @@
         }
 
         [TestMethod]
+        public void MatchVariableInFunctionalExpression()
+        {
+            var one = new IntegerExpression(1);
+            var two = new IntegerExpression(2);
+            var expr = new FunctionalExpression(new AddIntegersFunction(), new IExpression[] { new NameExpression("a"), new NameExpression("b") });
+            var expr1 = new FunctionalExpression(new AddIntegersFunction(), new IExpression[] { one, two });
+
+            Context<IExpression> ctx = new Context<IExpression>();
+
+            Assert.IsTrue(expr.Match(expr1, ctx));
+
+            Assert.AreSame(one, ctx.GetValue("a"));
+            Assert.AreSame(two, ctx.GetValue("b"));
+        }
+
+        [TestMethod]
         public void FunctionalExpressionWithFunctionWithoutMappers()
         {
             IFunction fn = new Function(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)));

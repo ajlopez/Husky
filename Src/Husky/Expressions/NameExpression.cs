@@ -32,9 +32,6 @@
             if (result != null)
                 return result.Match(expr, ctx);
 
-            if (result != null)
-                return false;
-
             ctx.SetValue(this.name, expr);
 
             return true;
