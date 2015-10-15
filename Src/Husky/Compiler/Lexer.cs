@@ -7,13 +7,22 @@
 
     public class Lexer
     {
+        private string text;
         public Lexer(string text)
         {
+            this.text = text;
         }
 
         public Token NextToken()
         {
-            return null;
+            if (this.text == null || string.IsNullOrEmpty(this.text))
+                return null;
+
+            Token token = new Token(this.text, TokenType.Name);
+
+            this.text = null;
+
+            return token;
         }
     }
 }

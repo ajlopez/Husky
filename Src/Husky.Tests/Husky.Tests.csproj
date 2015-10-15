@@ -45,6 +45,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compiler\LexerTests.cs" />
     <Compile Include="ContextTests.cs" />
     <Compile Include="Expressions\NameExpressionTests.cs" />
     <Compile Include="Expressions\ValueExpressionTests.cs" />

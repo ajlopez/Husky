@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compiler\Lexer.cs" />
+    <Compile Include="Compiler\Token.cs" />
+    <Compile Include="Compiler\TokenType.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\DoubleExpression.cs" />
