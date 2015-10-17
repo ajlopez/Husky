@@ -50,15 +50,5 @@
             Assert.AreSame(one, ctx.GetValue("a"));
             Assert.AreSame(two, ctx.GetValue("b"));
         }
-
-        [TestMethod]
-        public void FunctionalExpressionWithFunctionWithoutMappers()
-        {
-            IFunction fn = new Function(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)));
-
-            var expr = new FunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
-
-            Assert.AreSame(expr, expr.Reduce());
-        }
     }
 }

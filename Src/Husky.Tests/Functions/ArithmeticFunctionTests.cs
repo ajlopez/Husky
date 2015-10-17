@@ -39,7 +39,6 @@
         {
             var fn = new AddIntegersFunction();
 
-            Assert.IsTrue(fn.HasMappers());
             Assert.AreSame(fn, fn.Reduce());
             Assert.AreEqual(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)), fn.Type);
         }
@@ -49,7 +48,6 @@
         {
             var fn = new SubtractIntegersFunction();
 
-            Assert.IsTrue(fn.HasMappers());
             Assert.AreSame(fn, fn.Reduce());
             Assert.AreEqual(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)), fn.Type);
         }

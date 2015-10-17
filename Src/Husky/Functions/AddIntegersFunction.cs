@@ -27,11 +27,6 @@
             return this;
         }
 
-        public bool HasMappers()
-        {
-            return true;
-        }
-
         public bool Match(IExpression expr, Context<IExpression> ctx)
         {
             return expr != null && expr is AddIntegersFunction;

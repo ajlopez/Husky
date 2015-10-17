@@ -27,11 +27,6 @@
             this.mappers.Add(new Mapper(from, to));
         }
 
-        public bool HasMappers()
-        {
-            return this.mappers.Count > 0;
-        }
-
         public IExpression Apply(IExpression expr)
         {
             foreach (var mapper in this.mappers)

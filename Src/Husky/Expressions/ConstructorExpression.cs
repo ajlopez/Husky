@@ -7,13 +7,13 @@
     using Husky.Functions;
     using Husky.Types;
 
-    public class FunctionalExpression : IExpression
+    public class ConstructorExpression : IExpression
     {
-        private IExpression head;
+        private ConstructorFunction head;
         private IList<IExpression> args;
         private IType type;
 
-        public FunctionalExpression(IExpression head, IList<IExpression> args) 
+        public ConstructorExpression(ConstructorFunction head, IList<IExpression> args) 
         {
             this.head = head;
             this.args = args;
@@ -28,9 +28,7 @@
 
         public IExpression Reduce()
         {
-            IFunction fn = (IFunction)this.head.Reduce();
-
-            return fn.Apply(this.args);
+            return this;
         }
 
         public bool Match(IExpression expr, Context<IExpression> ctx)
@@ -38,10 +36,10 @@
             if (expr == null)
                 return false;
 
-            if (!(expr is FunctionalExpression))
+            if (!(expr is ConstructorExpression))
                 return false;
 
-            var fexpr = (FunctionalExpression)expr;
+            var fexpr = (ConstructorExpression)expr;
 
             if (this.args.Count != fexpr.args.Count)
                 return false;
