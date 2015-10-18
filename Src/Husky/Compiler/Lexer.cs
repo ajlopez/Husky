@@ -31,12 +31,29 @@
             if (position >= length)
                 return null;
 
-            string value = this.text[position++].ToString();
+            char ch = this.text[position++];
+
+            if (char.IsDigit(ch))
+                return this.NextInteger(ch);
+
+            string value = ch.ToString();
 
             while (position < length && !char.IsWhiteSpace(this.text[position]))
                 value += this.text[position++];
 
             Token token = new Token(value, TokenType.Name);
+
+            return token;
+        }
+
+        private Token NextInteger(char ch)
+        {
+            string value = ch.ToString();
+
+            while (position < length && char.IsDigit(this.text[position]))
+                value += this.text[position++];
+
+            Token token = new Token(value, TokenType.Integer);
 
             return token;
         }

@@ -27,6 +27,20 @@
         }
 
         [TestMethod]
+        public void GetInteger()
+        {
+            Lexer lexer = new Lexer("42");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("42", token.Value);
+            Assert.AreEqual(TokenType.Integer, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetName()
         {
             Lexer lexer = new Lexer("foo");
