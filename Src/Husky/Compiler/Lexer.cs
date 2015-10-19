@@ -33,6 +33,9 @@
 
             char ch = this.text[position++];
 
+            if (ch == '+')
+                return new Token("+", TokenType.Operator);
+
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
 
