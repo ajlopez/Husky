@@ -9,6 +9,7 @@
     {
         Name = 1,
         Integer = 2,
-        Operator = 3
+        Operator = 3,
+        Delimiter = 4
     }
 }

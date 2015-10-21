@@ -42,6 +42,9 @@
             if (ch == '*')
                 return new Token("*", TokenType.Operator);
 
+            if (ch == ',')
+                return new Token(",", TokenType.Delimiter);
+
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
 
