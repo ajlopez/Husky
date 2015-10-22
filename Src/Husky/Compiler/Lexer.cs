@@ -8,6 +8,8 @@
     public class Lexer
     {
         private static char[] operators = new char[] { '+', '-', '*' };
+        private static char[] delimiters = new char[] { ',' };
+
         private string text;
         private int length;
         private int position;
@@ -37,8 +39,8 @@
             if (operators.Contains(ch))
                 return new Token(ch.ToString(), TokenType.Operator);
 
-            if (ch == ',')
-                return new Token(",", TokenType.Delimiter);
+            if (delimiters.Contains(ch))
+                return new Token(ch.ToString(), TokenType.Delimiter);
 
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
