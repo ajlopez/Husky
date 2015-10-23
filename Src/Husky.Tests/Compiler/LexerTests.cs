@@ -129,5 +129,26 @@
 
             Assert.IsNull(lexer.NextToken());
         }
+
+        [TestMethod]
+        public void GetParensAsDelimiters()
+        {
+            Lexer lexer = new Lexer("()");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("(", token.Value);
+            Assert.AreEqual(TokenType.Delimiter, token.Type);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(")", token.Value);
+            Assert.AreEqual(TokenType.Delimiter, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }
+
