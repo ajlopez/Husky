@@ -149,6 +149,49 @@
 
             Assert.IsNull(lexer.NextToken());
         }
+
+        [TestMethod]
+        public void GetNameInParens()
+        {
+            Lexer lexer = new Lexer("(Foo)");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("(", token.Value);
+            Assert.AreEqual(TokenType.Delimiter, token.Type);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("Foo", token.Value);
+            Assert.AreEqual(TokenType.Name, token.Type);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(")", token.Value);
+            Assert.AreEqual(TokenType.Delimiter, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void UnexpectedChar()
+        {
+            var lexer = new Lexer("@");
+
+            try
+            {
+                lexer.NextToken();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(LexerException));
+                Assert.AreEqual("Unexpected '@'", ex.Message);
+            }
+        }
     }
 }
 

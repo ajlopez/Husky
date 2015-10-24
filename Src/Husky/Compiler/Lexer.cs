@@ -45,9 +45,17 @@
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
 
+            if (char.IsLetter(ch))
+                return this.NextName(ch);
+
+            throw new LexerException(string.Format("Unexpected '{0}'", ch));
+        }
+
+        private Token NextName(char ch)
+        {
             string value = ch.ToString();
 
-            while (position < length && !char.IsWhiteSpace(this.text[position]))
+            while (position < length && char.IsLetter(this.text[position]))
                 value += this.text[position++];
 
             Token token = new Token(value, TokenType.Name);
