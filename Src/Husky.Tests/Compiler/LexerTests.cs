@@ -55,6 +55,20 @@
         }
 
         [TestMethod]
+        public void GetNameWithDigits()
+        {
+            Lexer lexer = new Lexer("foo42");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("foo42", token.Value);
+            Assert.AreEqual(TokenType.Name, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetTwoNames()
         {
             Lexer lexer = new Lexer("foo bar");

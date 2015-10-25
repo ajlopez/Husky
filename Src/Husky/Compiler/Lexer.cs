@@ -55,7 +55,7 @@
         {
             string value = ch.ToString();
 
-            while (position < length && char.IsLetter(this.text[position]))
+            while (position < length && char.IsLetterOrDigit(this.text[position]))
                 value += this.text[position++];
 
             Token token = new Token(value, TokenType.Name);
