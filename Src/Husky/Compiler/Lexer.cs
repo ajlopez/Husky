@@ -28,13 +28,13 @@
 
         public Token NextToken()
         {
-            while (position < length && char.IsWhiteSpace(this.text[position]))
-                position++;
+            while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
+                this.position++;
 
-            if (position >= length)
+            if (this.position >= this.length)
                 return null;
 
-            char ch = this.text[position++];
+            char ch = this.text[this.position++];
 
             if (operators.Contains(ch))
                 return new Token(ch.ToString(), TokenType.Operator);
@@ -55,8 +55,8 @@
         {
             string value = ch.ToString();
 
-            while (position < length && char.IsLetterOrDigit(this.text[position]))
-                value += this.text[position++];
+            while (this.position < this.length && char.IsLetterOrDigit(this.text[this.position]))
+                value += this.text[this.position++];
 
             Token token = new Token(value, TokenType.Name);
 
@@ -67,10 +67,10 @@
         {
             string value = ch.ToString();
 
-            while (position < length && char.IsDigit(this.text[position]))
-                value += this.text[position++];
+            while (this.position < this.length && char.IsDigit(this.text[this.position]))
+                value += this.text[this.position++];
 
-            if (this.position < this.length && this.text[position] == '.')
+            if (this.position < this.length && this.text[this.position] == '.')
                 return this.NextReal(value);
 
             Token token = new Token(value, TokenType.Integer);
@@ -83,8 +83,8 @@
             value += '.';
             this.position++;
 
-            while (position < length && char.IsDigit(this.text[position]))
-                value += this.text[position++];
+            while (this.position < this.length && char.IsDigit(this.text[this.position]))
+                value += this.text[this.position++];
 
             Token token = new Token(value, TokenType.Real);
 
