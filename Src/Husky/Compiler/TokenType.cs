@@ -9,7 +9,8 @@
     {
         Name = 1,
         Integer = 2,
-        Operator = 3,
-        Delimiter = 4
+        Real = 3,
+        Operator = 4,
+        Delimiter = 5
     }
 }

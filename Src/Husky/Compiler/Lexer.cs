@@ -70,7 +70,23 @@
             while (position < length && char.IsDigit(this.text[position]))
                 value += this.text[position++];
 
+            if (this.position < this.length && this.text[position] == '.')
+                return this.NextReal(value);
+
             Token token = new Token(value, TokenType.Integer);
+
+            return token;
+        }
+
+        private Token NextReal(string value)
+        {
+            value += '.';
+            this.position++;
+
+            while (position < length && char.IsDigit(this.text[position]))
+                value += this.text[position++];
+
+            Token token = new Token(value, TokenType.Real);
 
             return token;
         }
