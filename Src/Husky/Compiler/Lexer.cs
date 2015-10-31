@@ -36,6 +36,9 @@
 
             char ch = this.text[this.position++];
 
+            if (ch == '"')
+                return this.NextString();
+
             if (operators.Contains(ch))
                 return new Token(ch.ToString(), TokenType.Operator);
 
@@ -49,6 +52,21 @@
                 return this.NextName(ch);
 
             throw new LexerException(string.Format("Unexpected '{0}'", ch));
+        }
+
+        private Token NextString()
+        {
+            string value = string.Empty;
+
+            while (this.position < this.length && this.text[this.position] != '"')
+                value += this.text[this.position++];
+
+            if (this.position < this.length)
+                this.position++;
+
+            Token token = new Token(value, TokenType.String);
+
+            return token;
         }
 
         private Token NextName(char ch)
