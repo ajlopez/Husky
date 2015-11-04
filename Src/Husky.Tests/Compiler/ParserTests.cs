@@ -1,13 +1,13 @@
 ﻿namespace Husky.Tests.Compiler
 {
     using System;
-    using System.Text;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Husky.Compiler;
     using System.Linq.Expressions;
+    using System.Text;
+    using Husky.Compiler;
     using Husky.Expressions;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class ParserTests
