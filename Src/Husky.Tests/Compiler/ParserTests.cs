@@ -41,5 +41,19 @@
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseRealAsDoubleExpression()
+        {
+            Parser parser = new Parser("1.23");
+
+            var result = parser.ParseExpression();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DoubleExpression));
+            Assert.AreEqual(1.23, ((DoubleExpression)result).Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }

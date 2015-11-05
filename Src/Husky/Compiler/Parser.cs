@@ -25,6 +25,9 @@
             if (token.Type == TokenType.Integer)
                 return new IntegerExpression(int.Parse(token.Value));
 
+            if (token.Type == TokenType.Real)
+                return new DoubleExpression(double.Parse(token.Value));
+
             return null;
         }
     }
