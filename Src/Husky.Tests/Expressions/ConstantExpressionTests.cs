@@ -64,6 +64,32 @@
         }
 
         [TestMethod]
+        public void GetStringConstant()
+        {
+            var expr = new StringExpression("foo");
+
+            Assert.AreEqual("foo", expr.Value);
+            Assert.AreSame(StringType.Instance, expr.Type);
+            Assert.AreSame(expr, expr.Reduce());
+        }
+
+        [TestMethod]
+        public void MatchStringConstant()
+        {
+            var expr = new StringExpression("foo");
+            var expr1 = new StringExpression("foo");
+            var expr2 = new StringExpression("bar");
+            var expr3 = new IntegerExpression(42);
+
+            Assert.IsTrue(expr.Match(expr, null));
+            Assert.IsTrue(expr.Match(expr1, null));
+
+            Assert.IsFalse(expr.Match(null, null));
+            Assert.IsFalse(expr.Match(expr2, null));
+            Assert.IsFalse(expr.Match(expr3, null));
+        }
+
+        [TestMethod]
         public void EqualExpressions()
         {
             var expr1 = new IntegerExpression(1);
