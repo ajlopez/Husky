@@ -49,6 +49,7 @@
     <Compile Include="Compiler\ParserTests.cs" />
     <Compile Include="ContextTests.cs" />
     <Compile Include="Expressions\ConstructorFunctionalExpressionTests.cs" />
+    <Compile Include="Expressions\ConstructorValueExpressionTests.cs" />
     <Compile Include="Expressions\NameExpressionTests.cs" />
     <Compile Include="Expressions\ValueExpressionTests.cs" />
     <Compile Include="Functions\ArithmeticFunctionTests.cs" />

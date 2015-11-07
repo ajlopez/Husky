@@ -48,6 +48,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\ConstructorFunctionalExpression.cs" />
+    <Compile Include="Expressions\ConstructorValueExpression.cs" />
     <Compile Include="Expressions\StringExpression.cs" />
     <Compile Include="Expressions\DoubleExpression.cs" />
     <Compile Include="Expressions\FunctionalExpression.cs" />
