@@ -10,14 +10,14 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class ConstructorExpressionTests
+    public class ConstructorFunctionalExpressionTests
     {
         [TestMethod]
         public void ReduceConstructorExpression()
         {
             var fn = new ConstructorFunction(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)));
 
-            var expr = new ConstructorExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
+            var expr = new ConstructorFunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
 
             Assert.AreSame(expr, expr.Reduce());
         }
@@ -27,9 +27,9 @@
         {
             var fn = new ConstructorFunction(new MapType(IntegerType.Instance, new MapType(IntegerType.Instance, IntegerType.Instance)));
 
-            var expr = new ConstructorExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
-            var expr2 = new ConstructorExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
-            var expr3 = new ConstructorExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(3) });
+            var expr = new ConstructorFunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
+            var expr2 = new ConstructorFunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
+            var expr3 = new ConstructorFunctionalExpression(fn, new IExpression[] { new IntegerExpression(1), new IntegerExpression(3) });
 
             Assert.IsTrue(expr.Match(expr2, null));
             Assert.IsFalse(expr.Match(expr3, null));

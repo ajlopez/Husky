@@ -7,13 +7,13 @@
     using Husky.Functions;
     using Husky.Types;
 
-    public class ConstructorExpression : IExpression
+    public class ConstructorFunctionalExpression : IExpression
     {
         private ConstructorFunction head;
         private IList<IExpression> args;
         private IType type;
 
-        public ConstructorExpression(ConstructorFunction head, IList<IExpression> args) 
+        public ConstructorFunctionalExpression(ConstructorFunction head, IList<IExpression> args) 
         {
             this.head = head;
             this.args = args;
@@ -36,10 +36,10 @@
             if (expr == null)
                 return false;
 
-            if (!(expr is ConstructorExpression))
+            if (!(expr is ConstructorFunctionalExpression))
                 return false;
 
-            var fexpr = (ConstructorExpression)expr;
+            var fexpr = (ConstructorFunctionalExpression)expr;
 
             if (this.args.Count != fexpr.args.Count)
                 return false;
