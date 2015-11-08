@@ -10,6 +10,7 @@ Haskell-like interpreter in C#. WIP.
 - [Haskell 98 Report](https://www.haskell.org/onlinereport/index98.html)
 - [Lexical Structure](https://www.haskell.org/onlinereport/lexemes.html#sect2)
 - [Parser](https://github.com/ghc/ghc/blob/master/compiler/parser/Parser.y)
+- [Documentation](https://www.haskell.org/documentation)
 
 ## License
 
