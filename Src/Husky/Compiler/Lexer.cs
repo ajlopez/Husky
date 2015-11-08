@@ -112,8 +112,21 @@
 
         private void SkipWhiteSpaces()
         {
-            while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
-                this.position++;
+            while (true)
+            {
+                while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
+                    this.position++;
+
+                if (this.position < this.length && this.text[this.position] == '-' && this.position + 1 < this.length && this.text[this.position + 1] == '-')
+                {
+                    while (this.position < this.length && this.text[this.position] != '\n')
+                        this.position++;
+
+                    this.position++;
+                }
+                else
+                    return;
+            }
         }
     }
 }

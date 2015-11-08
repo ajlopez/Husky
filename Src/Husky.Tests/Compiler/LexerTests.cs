@@ -41,6 +41,14 @@
         }
 
         [TestMethod]
+        public void SkipComment()
+        {
+            Lexer lexer = new Lexer("-- a comment\n");
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetReal()
         {
             Lexer lexer = new Lexer("1.23");
