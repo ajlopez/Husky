@@ -28,8 +28,7 @@
 
         public Token NextToken()
         {
-            while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
-                this.position++;
+            this.SkipWhiteSpaces();
 
             if (this.position >= this.length)
                 return null;
@@ -109,6 +108,12 @@
             Token token = new Token(value, TokenType.Real);
 
             return token;
+        }
+
+        private void SkipWhiteSpaces()
+        {
+            while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
+                this.position++;
         }
     }
 }
