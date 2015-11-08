@@ -6,6 +6,10 @@ Haskell-like interpreter in C#. WIP.
 
 - [Numbers](https://www.haskell.org/tutorial/numbers.html)
 - [Standard Prelude](https://www.haskell.org/onlinereport/standard-prelude.html)
+- [Declaration and Bindings](https://www.haskell.org/onlinereport/decls.html#sect4)
+- [Haskell 98 Report](https://www.haskell.org/onlinereport/index98.html)
+- [Lexical Structure](https://www.haskell.org/onlinereport/lexemes.html#sect2)
+- [Parser](https://github.com/ghc/ghc/blob/master/compiler/parser/Parser.y)
 
 ## License
 
