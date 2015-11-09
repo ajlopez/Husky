@@ -48,6 +48,7 @@
     <Compile Include="Compiler\LexerTests.cs" />
     <Compile Include="Compiler\ParserTests.cs" />
     <Compile Include="ContextTests.cs" />
+    <Compile Include="Declarations\TypeDeclarationTests.cs" />
     <Compile Include="Expressions\ConstructorFunctionalExpressionTests.cs" />
     <Compile Include="Expressions\ConstructorValueExpressionTests.cs" />
     <Compile Include="Expressions\NameExpressionTests.cs" />

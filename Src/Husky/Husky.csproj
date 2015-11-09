@@ -46,6 +46,7 @@
     <Compile Include="Compiler\Token.cs" />
     <Compile Include="Compiler\TokenType.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Declarations\TypeDeclaration.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\ConstructorFunctionalExpression.cs" />
     <Compile Include="Expressions\ConstructorValueExpression.cs" />
