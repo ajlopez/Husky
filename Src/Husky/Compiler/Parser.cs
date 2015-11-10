@@ -28,6 +28,9 @@
             if (token.Type == TokenType.Real)
                 return new DoubleExpression(double.Parse(token.Value));
 
+            if (token.Type == TokenType.String)
+                return new StringExpression(token.Value);
+
             return null;
         }
     }
