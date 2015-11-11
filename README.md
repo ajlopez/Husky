@@ -11,6 +11,8 @@ Haskell-like interpreter in C#. WIP.
 - [Lexical Structure](https://www.haskell.org/onlinereport/lexemes.html#sect2)
 - [Parser](https://github.com/ghc/ghc/blob/master/compiler/parser/Parser.y)
 - [Documentation](https://www.haskell.org/documentation)
+- [Reference Card](https://wiki.haskell.org/Reference_card)
+- [Frege, askell for the JVM](https://github.com/Frege/frege)
 
 ## License
 
