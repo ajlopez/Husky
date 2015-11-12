@@ -133,7 +133,7 @@
                 while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
                     this.position++;
 
-                if (this.position < this.length -1 && this.text[this.position] == '-' && this.text[this.position + 1] == '-')
+                if (this.position < this.length - 1 && this.text[this.position] == '-' && this.text[this.position + 1] == '-')
                 {
                     while (this.position < this.length && this.text[this.position] != '\n')
                         this.position++;
@@ -142,7 +142,7 @@
                 }
                 else if (this.position < this.length - 1 && this.text[this.position] == '{' && this.text[this.position + 1] == '-')
                 {
-                    while (this.position < this.length -1 && (this.text[this.position] != '-' || this.text[this.position + 1] != '}'))
+                    while (this.position < this.length - 1 && (this.text[this.position] != '-' || this.text[this.position + 1] != '}'))
                         this.position++;
 
                     this.position += 2;
