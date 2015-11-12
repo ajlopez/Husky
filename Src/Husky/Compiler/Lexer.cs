@@ -7,7 +7,7 @@
 
     public class Lexer
     {
-        private static char[] operators = new char[] { '+', '-', '*' };
+        private static string[] operators = new string[] { "+", "-", "*" };
         private static char[] delimiters = new char[] { ',', '(', ')' };
 
         private string text;
@@ -38,11 +38,16 @@
             if (ch == '"')
                 return this.NextString();
 
-            if (operators.Contains(ch))
-                return new Token(ch.ToString(), TokenType.Operator);
+            if (!char.IsLetterOrDigit(ch))
+            {
+                string value = ch.ToString();
 
-            if (delimiters.Contains(ch))
-                return new Token(ch.ToString(), TokenType.Delimiter);
+                if (operators.Contains(value))
+                    return new Token(value, TokenType.Operator);
+
+                if (delimiters.Contains(ch))
+                    return new Token(value, TokenType.Delimiter);
+            }
 
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
