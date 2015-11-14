@@ -13,6 +13,8 @@ Haskell-like interpreter in C#. WIP.
 - [Documentation](https://www.haskell.org/documentation)
 - [Reference Card](https://wiki.haskell.org/Reference_card)
 - [Frege, askell for the JVM](https://github.com/Frege/frege)
+- [Haskell Operators](http://www.imada.sdu.dk/~rolf/Edu/DM509/E06/haskell-operatorer.pdf)
+- [Real World Haskell](http://book.realworldhaskell.org)
 
 ## License
 
