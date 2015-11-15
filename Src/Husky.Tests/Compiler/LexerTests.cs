@@ -220,6 +220,23 @@
         }
 
         [TestMethod]
+        public void GetComparisonOperators()
+        {
+            Lexer lexer = new Lexer("< > <= >= == /=");
+
+            foreach (var value in new string[] { "<", ">", "<=", ">=", "==", "/=" })
+            {
+                var token = lexer.NextToken();
+
+                Assert.IsNotNull(token);
+                Assert.AreEqual(value, token.Value);
+                Assert.AreEqual(TokenType.Operator, token.Type);
+            }
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetArrowsAsOperators()
         {
             Lexer lexer = new Lexer("-> <-");
