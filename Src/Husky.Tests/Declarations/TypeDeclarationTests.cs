@@ -6,6 +6,7 @@
     using System.Text;
     using Husky.Declarations;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Husky.Types;
 
     [TestClass]
     public class TypeDeclarationTests
@@ -16,6 +17,20 @@
             var decl = new TypeDeclaration("Day");
 
             Assert.AreEqual("Day", decl.Name);
+        }
+
+        [TestMethod]
+        public void Execute()
+        {
+            var ctx = new Context<IType>();
+            var decl = new TypeDeclaration("Day");
+
+            decl.Execute(ctx);
+
+            var result = ctx.GetValue("Day");
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NamedType));
+            Assert.AreEqual("Day", ((NamedType)result).Name);
         }
     }
 }
