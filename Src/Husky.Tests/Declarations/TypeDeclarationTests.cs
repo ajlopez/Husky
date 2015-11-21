@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Text;
     using Husky.Declarations;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Husky.Types;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class TypeDeclarationTests
