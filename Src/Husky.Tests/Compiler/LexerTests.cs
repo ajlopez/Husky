@@ -220,6 +220,20 @@
         }
 
         [TestMethod]
+        public void GetLambdaOperator()
+        {
+            Lexer lexer = new Lexer("\\");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("\\", token.Value);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetDoubleColonAsOperator()
         {
             Lexer lexer = new Lexer("::");
