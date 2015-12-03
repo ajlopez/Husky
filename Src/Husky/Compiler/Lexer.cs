@@ -42,7 +42,7 @@
             {
                 string value = ch.ToString();
 
-                if (this.position < this.length)
+                if (this.position < this.length && !char.IsLetterOrDigit(this.text[this.position]))
                 {
                     string value2 = value + this.text[this.position].ToString();
 
