@@ -38,26 +38,12 @@
             if (ch == '"')
                 return this.NextString();
 
-            if (!char.IsLetterOrDigit(ch))
+            if (!char.IsLetterOrDigit(ch)) 
             {
-                string value = ch.ToString();
+                Token token = this.NextOperatorDelimiter(ch);
 
-                if (this.position < this.length && !char.IsLetterOrDigit(this.text[this.position]))
-                {
-                    string value2 = value + this.text[this.position].ToString();
-
-                    if (operators.Contains(value2))
-                    {
-                        this.position++;
-                        return new Token(value2, TokenType.Operator);
-                    }
-                }
-
-                if (operators.Contains(value))
-                    return new Token(value, TokenType.Operator);
-
-                if (delimiters.Contains(ch))
-                    return new Token(value, TokenType.Delimiter);
+                if (token != null)
+                    return token;
             }
 
             if (char.IsDigit(ch))
@@ -67,6 +53,30 @@
                 return this.NextName(ch);
 
             throw new LexerException(string.Format("Unexpected '{0}'", ch));
+        }
+
+        private Token NextOperatorDelimiter(char ch)
+        {
+            string value = ch.ToString();
+
+            if (this.position < this.length && !char.IsLetterOrDigit(this.text[this.position]))
+            {
+                string value2 = value + this.text[this.position].ToString();
+
+                if (operators.Contains(value2))
+                {
+                    this.position++;
+                    return new Token(value2, TokenType.Operator);
+                }
+            }
+
+            if (operators.Contains(value))
+                return new Token(value, TokenType.Operator);
+
+            if (delimiters.Contains(ch))
+                return new Token(value, TokenType.Delimiter);
+
+            return null;
         }
 
         private Token NextString()
