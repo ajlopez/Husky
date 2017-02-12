@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using Husky.Expressions;
+    using System.Globalization;
 
     public class Parser
     {
@@ -26,7 +27,7 @@
                 return new IntegerExpression(int.Parse(token.Value));
 
             if (token.Type == TokenType.Real)
-                return new DoubleExpression(double.Parse(token.Value));
+                return new DoubleExpression(double.Parse(token.Value, CultureInfo.InvariantCulture));
 
             if (token.Type == TokenType.String)
                 return new StringExpression(token.Value);
