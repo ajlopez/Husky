@@ -22,6 +22,15 @@
         }
 
         [TestMethod]
+        public void AddFunctionalExpression()
+        {
+            var expr = new FunctionalExpression(new AddIntegersFunction(), new IExpression[] { new FunctionalExpression(new AddIntegersFunction(), new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) }), new IntegerExpression(3) });
+
+            Assert.AreEqual(new IntegerExpression(6), expr.Reduce());
+            Assert.AreSame(IntegerType.Instance, expr.Type);
+        }
+
+        [TestMethod]
         public void MatchWithFunctionalExpression()
         {
             var expr = new FunctionalExpression(new AddIntegersFunction(), new IExpression[] { new IntegerExpression(1), new IntegerExpression(2) });
