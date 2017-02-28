@@ -12,6 +12,7 @@
         Real = 3,
         String = 4,
         Operator = 5,
-        Delimiter = 6
+        Delimiter = 6,
+        NewLine = 7
     }
 }

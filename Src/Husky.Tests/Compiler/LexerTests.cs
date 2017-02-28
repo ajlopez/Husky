@@ -41,9 +41,14 @@
         }
 
         [TestMethod]
-        public void SkipComment()
+        public void SkipCommentUpToNewLine()
         {
             Lexer lexer = new Lexer("-- a comment\n");
+
+            var token = lexer.NextToken();
+
+            Assert.AreEqual(TokenType.NewLine, token.Type);
+            Assert.AreEqual("\n", token.Value);
 
             Assert.IsNull(lexer.NextToken());
         }
@@ -336,6 +341,68 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(",", token.Value);
             Assert.AreEqual(TokenType.Delimiter, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetNewLine()
+        {
+            Lexer lexer = new Lexer("\n");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("\n", token.Value);
+            Assert.AreEqual(TokenType.NewLine, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetTwoNewLines()
+        {
+            Lexer lexer = new Lexer("\n\n");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("\n", token.Value);
+            Assert.AreEqual(TokenType.NewLine, token.Type);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("\n", token.Value);
+            Assert.AreEqual(TokenType.NewLine, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetCarriageReturnNewLine()
+        {
+            Lexer lexer = new Lexer("\r\n");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("\r\n", token.Value);
+            Assert.AreEqual(TokenType.NewLine, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetCarriageReturn()
+        {
+            Lexer lexer = new Lexer("\r");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("\r", token.Value);
+            Assert.AreEqual(TokenType.NewLine, token.Type);
 
             Assert.IsNull(lexer.NextToken());
         }

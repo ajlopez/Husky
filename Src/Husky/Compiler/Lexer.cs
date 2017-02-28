@@ -35,6 +35,20 @@
 
             char ch = this.text[this.position++];
 
+            if (ch == '\n')
+                return new Token("\n", TokenType.NewLine);
+
+            if (ch == '\r')
+            {
+                if (this.position < this.length && this.text[this.position] == '\n')
+                {
+                    this.position++;
+                    return new Token("\r\n", TokenType.NewLine);
+                }
+
+                return new Token("\r", TokenType.NewLine);
+            }
+
             if (ch == '"')
                 return this.NextString();
 
@@ -141,15 +155,19 @@
             while (true)
             {
                 while (this.position < this.length && char.IsWhiteSpace(this.text[this.position]))
-                    this.position++;
-
-                if (this.position < this.length - 1 && this.text[this.position] == '-' && this.text[this.position + 1] == '-')
                 {
-                    while (this.position < this.length && this.text[this.position] != '\n')
-                        this.position++;
+                    if (this.text[this.position] == '\n')
+                        break;
+
+                    if (this.text[this.position] == '\r')
+                        break;
 
                     this.position++;
                 }
+
+                if (this.position < this.length - 1 && this.text[this.position] == '-' && this.text[this.position + 1] == '-')
+                    while (this.position < this.length && this.text[this.position] != '\n')
+                        this.position++;
                 else if (this.position < this.length - 1 && this.text[this.position] == '{' && this.text[this.position + 1] == '-')
                 {
                     while (this.position < this.length - 1 && (this.text[this.position] != '-' || this.text[this.position + 1] != '}'))
