@@ -32,6 +32,9 @@
             if (token.Type == TokenType.String)
                 return new StringExpression(token.Value);
 
+            if (token.Type == TokenType.Name)
+                return new NameExpression(token.Value);
+
             return null;
         }
     }

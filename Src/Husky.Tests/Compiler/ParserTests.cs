@@ -69,5 +69,19 @@
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseNameAsNameExpression()
+        {
+            Parser parser = new Parser("foo");
+
+            var result = parser.ParseExpression();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NameExpression));
+            Assert.AreEqual("foo", ((NameExpression)result).Name);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }
