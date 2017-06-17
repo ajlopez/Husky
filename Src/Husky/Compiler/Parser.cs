@@ -2,10 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
     using Husky.Expressions;
-    using System.Globalization;
 
     public class Parser
     {
