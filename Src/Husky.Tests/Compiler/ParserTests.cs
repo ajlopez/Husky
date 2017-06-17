@@ -15,7 +15,7 @@
         [TestMethod]
         public void NullTextAsNullExpression()
         {
-            Parser parser = new Parser(null);
+            Parser parser = new Parser(null, null);
 
             Assert.IsNull(parser.ParseExpression());
         }
@@ -23,7 +23,7 @@
         [TestMethod]
         public void EmptyStringAsNullExpression()
         {
-            Parser parser = new Parser(string.Empty);
+            Parser parser = new Parser(string.Empty, null);
 
             Assert.IsNull(parser.ParseExpression());
         }
@@ -31,7 +31,7 @@
         [TestMethod]
         public void ParseIntegerAsIntegerExpression()
         {
-            Parser parser = new Parser("42");
+            Parser parser = new Parser("42", null);
 
             var result = parser.ParseExpression();
 
@@ -45,7 +45,7 @@
         [TestMethod]
         public void ParseRealAsDoubleExpression()
         {
-            Parser parser = new Parser("1.23");
+            Parser parser = new Parser("1.23", null);
 
             var result = parser.ParseExpression();
 
@@ -59,7 +59,7 @@
         [TestMethod]
         public void ParseStringAsStringExpression()
         {
-            Parser parser = new Parser("\"foo\"");
+            Parser parser = new Parser("\"foo\"", null);
 
             var result = parser.ParseExpression();
 
@@ -73,7 +73,7 @@
         [TestMethod]
         public void ParseNameAsNameExpression()
         {
-            Parser parser = new Parser("foo");
+            Parser parser = new Parser("foo", new Context<Husky.Types.IType>());
 
             var result = parser.ParseExpression();
 
