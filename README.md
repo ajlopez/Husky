@@ -16,6 +16,7 @@ Haskell-like interpreter in C#. WIP.
 - [Haskell Operators](http://www.imada.sdu.dk/~rolf/Edu/DM509/E06/haskell-operatorer.pdf)
 - [Real World Haskell](http://book.realworldhaskell.org)
 - [Ten Things You Should Know About Haskell Syntax](https://www.fpcomplete.com/blog/2012/09/ten-things-you-should-know-about-haskell-syntax)
+- [Online Course: Functional Programming in Haskell](https://www.futurelearn.com/courses/functional-programming-haskell)
 
 ## License
 
