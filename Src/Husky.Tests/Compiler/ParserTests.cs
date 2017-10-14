@@ -8,6 +8,7 @@
     using Husky.Compiler;
     using Husky.Expressions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Husky.Types;
 
     [TestClass]
     public class ParserTests
@@ -73,13 +74,30 @@
         [TestMethod]
         public void ParseNameAsNameExpression()
         {
-            Parser parser = new Parser("foo", new Context<Husky.Types.IType>());
+            Parser parser = new Parser("foo", new Context<IType>());
 
             var result = parser.ParseExpression();
 
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(NameExpression));
             Assert.AreEqual("foo", ((NameExpression)result).Name);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseNameAsTypeeExpression()
+        {
+            Context<IType> ctx = new Context<IType>();
+            ctx.SetValue("Foo", IntegerType.Instance);
+
+            Parser parser = new Parser("Foo", ctx);
+
+            var result = parser.ParseExpression();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(TypeExpression));
+            Assert.AreEqual(IntegerType.Instance, ((TypeExpression)result).Type);
 
             Assert.IsNull(parser.ParseExpression());
         }
