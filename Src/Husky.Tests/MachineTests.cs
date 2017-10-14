@@ -52,13 +52,17 @@
 
             Assert.IsNotNull(vtrue);
             Assert.IsInstanceOfType(vtrue, typeof(ValueExpression));
-            Assert.AreSame(tbool, ((IExpression)vtrue).Type);
+            Assert.AreSame(tbool, vtrue.Type);
+            Assert.IsInstanceOfType(vtrue.Reduce(), typeof(BooleanExpression));
+            Assert.AreEqual(true, ((BooleanExpression)vtrue.Reduce()).Value);
 
             var vfalse = machine.ExpressionContext.GetValue("False");
 
             Assert.IsNotNull(vfalse);
             Assert.IsInstanceOfType(vfalse, typeof(ValueExpression));
-            Assert.AreSame(tbool, ((IExpression)vfalse).Type);
+            Assert.AreSame(tbool, vfalse.Type);
+            Assert.IsInstanceOfType(vfalse.Reduce(), typeof(BooleanExpression));
+            Assert.AreEqual(false, ((BooleanExpression)vfalse.Reduce()).Value);
         }
     }
 }

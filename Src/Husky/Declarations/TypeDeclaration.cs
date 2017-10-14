@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-using Husky.Types;
+    using Husky.Types;
 
     public class TypeDeclaration
     {
