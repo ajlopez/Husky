@@ -64,6 +64,7 @@
     <Compile Include="Types\DoubleTypeTests.cs" />
     <Compile Include="Types\IntegerTypeTests.cs" />
     <Compile Include="Types\MapTypeTests.cs" />
+    <Compile Include="ExecutionContextTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Husky\Husky.csproj">
