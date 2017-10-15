@@ -106,5 +106,41 @@
                 Assert.AreEqual("Invalid type for 'a' value", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GetUndefinedType()
+        {
+            ExecutionContext context = new ExecutionContext();
+
+            Assert.IsNull(context.GetType("Foo"));
+        }
+
+        [TestMethod]
+        public void DefineAndGetType()
+        {
+            ExecutionContext context = new ExecutionContext();
+
+            context.DefineType("Int", IntegerType.Instance);
+            Assert.AreSame(IntegerType.Instance, context.GetType("Int"));
+        }
+
+        [TestMethod]
+        public void CannotDefineTypeTwice()
+        {
+            ExecutionContext context = new ExecutionContext();
+
+            context.DefineType("Int", IntegerType.Instance);
+
+            try
+            {
+                context.DefineType("Int", IntegerType.Instance);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("Type 'Int' already defined", ex.Message);
+            }
+        }
     }
 }

@@ -9,27 +9,21 @@
 
     public class Machine
     {
-        private Context<ValueExpression> expressionContext = new Context<ValueExpression>();
-        private Context<IType> typeContext = new Context<IType>();
+        private ExecutionContext context = new ExecutionContext();
 
         public Machine()
         {
-            this.typeContext.SetValue("Integer", IntegerType.Instance);
-            this.typeContext.SetValue("Double", DoubleType.Instance);
+            this.context.DefineType("Integer", IntegerType.Instance);
+            this.context.DefineType("Double", DoubleType.Instance);
+            this.context.DefineType("Boolean", BooleanType.Instance);
 
-            this.typeContext.SetValue("Boolean", BooleanType.Instance);
+            this.context.DefineValue("False", BooleanType.Instance);
+            this.context.MapValue("False", new BooleanExpression(false));
 
-            var falsevalue = new ValueExpression(BooleanType.Instance);
-            falsevalue.MapTo(new BooleanExpression(false));
-            this.expressionContext.SetValue("False", falsevalue);
-
-            var truevalue = new ValueExpression(BooleanType.Instance);
-            truevalue.MapTo(new BooleanExpression(true));
-            this.expressionContext.SetValue("True", truevalue);
+            this.context.DefineValue("True", BooleanType.Instance);
+            this.context.MapValue("True", new BooleanExpression(true));
         }
 
-        public Context<ValueExpression> ExpressionContext { get { return this.expressionContext; } }
-
-        public Context<IType> TypeContext { get { return this.typeContext; } }
+        public ExecutionContext Context { get { return this.context; } }
     }
 }

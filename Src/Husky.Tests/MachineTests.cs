@@ -12,7 +12,7 @@
         {
             Machine machine = new Machine();
 
-            Assert.IsNotNull(machine.ExpressionContext);
+            Assert.IsNotNull(machine.Context);
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@
         {
             Machine machine = new Machine();
 
-            object value = machine.TypeContext.GetValue("Integer");
+            object value = machine.Context.GetType("Integer");
 
             Assert.IsNotNull(value);
             Assert.IsInstanceOfType(value, typeof(IntegerType));
@@ -32,7 +32,7 @@
         {
             Machine machine = new Machine();
 
-            object value = machine.TypeContext.GetValue("Double");
+            object value = machine.Context.GetType("Double");
 
             Assert.IsNotNull(value);
             Assert.IsInstanceOfType(value, typeof(DoubleType));
@@ -44,22 +44,20 @@
         {
             Machine machine = new Machine();
 
-            var tbool = machine.TypeContext.GetValue("Boolean");
+            var tbool = machine.Context.GetType("Boolean");
 
             Assert.IsNotNull(tbool);
 
-            var vtrue = machine.ExpressionContext.GetValue("True");
+            var vtrue = machine.Context.GetValue("True");
 
             Assert.IsNotNull(vtrue);
-            Assert.IsInstanceOfType(vtrue, typeof(ValueExpression));
             Assert.AreSame(tbool, vtrue.Type);
             Assert.IsInstanceOfType(vtrue.Reduce(), typeof(BooleanExpression));
             Assert.AreEqual(true, ((BooleanExpression)vtrue.Reduce()).Value);
 
-            var vfalse = machine.ExpressionContext.GetValue("False");
+            var vfalse = machine.Context.GetValue("False");
 
             Assert.IsNotNull(vfalse);
-            Assert.IsInstanceOfType(vfalse, typeof(ValueExpression));
             Assert.AreSame(tbool, vfalse.Type);
             Assert.IsInstanceOfType(vfalse.Reduce(), typeof(BooleanExpression));
             Assert.AreEqual(false, ((BooleanExpression)vfalse.Reduce()).Value);
