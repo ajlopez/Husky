@@ -10,6 +10,7 @@
     public class ExecutionContext
     {
         private Dictionary<string, IType> valueTypes = new Dictionary<string, IType>();
+        private Dictionary<string, IExpression> values = new Dictionary<string, IExpression>();
 
         public void DefineValue(string name, IType type)
         {
@@ -29,11 +30,23 @@
 
         public void MapValue(String name, IExpression expr)
         {
+            if (!valueTypes.ContainsKey(name))
+                throw new InvalidOperationException(String.Format("Value '{0}' has no type yet", name));
+
+            var expected = valueTypes[name];
+
+            if (!expr.Type.Match(expected))
+                throw new InvalidOperationException(String.Format("Invalid type for '{0}' value", name));
+            
+            values[name] = expr;
         }
 
         public IExpression GetValue(String name)
         {
-            return null;
+            if (!values.ContainsKey(name))
+                return null;
+
+            return values[name];
         }
 
         public void DefineType(string name, IType type)
