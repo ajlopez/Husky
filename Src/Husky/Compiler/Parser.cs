@@ -11,12 +11,12 @@
     public class Parser
     {
         private Lexer lexer;
-        private Context<IType> typeContext;
+        private ExecutionContext context;
 
-        public Parser(string text, Context<IType> typeContext)
+        public Parser(string text, ExecutionContext context)
         {
             this.lexer = new Lexer(text);
-            this.typeContext = typeContext;
+            this.context = context;
         }
 
         public IExpression ParseExpression()
@@ -39,7 +39,7 @@
             {
                 string name = token.Value;
 
-                IType type = this.typeContext.GetValue(name);
+                IType type = this.context.GetValueType(name);
 
                 if (type != null)
                     return new TypeExpression(type);

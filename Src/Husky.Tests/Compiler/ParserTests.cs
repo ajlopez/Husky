@@ -74,7 +74,7 @@
         [TestMethod]
         public void ParseNameAsNameExpression()
         {
-            Parser parser = new Parser("foo", new Context<IType>());
+            Parser parser = new Parser("foo", new ExecutionContext());
 
             var result = parser.ParseExpression();
 
@@ -86,10 +86,10 @@
         }
 
         [TestMethod]
-        public void ParseNameAsTypeeExpression()
+        public void ParseNameAsTypeExpression()
         {
-            Context<IType> ctx = new Context<IType>();
-            ctx.SetValue("Foo", IntegerType.Instance);
+            ExecutionContext ctx = new ExecutionContext();
+            ctx.DefineValue("Foo", IntegerType.Instance);
 
             Parser parser = new Parser("Foo", ctx);
 
