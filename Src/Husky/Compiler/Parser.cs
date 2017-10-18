@@ -21,6 +21,11 @@
 
         public IExpression ParseExpression()
         {
+            return this.ParseTerm();
+        }
+
+        private IExpression ParseTerm()
+        {
             var token = this.lexer.NextToken();
 
             if (token == null)
