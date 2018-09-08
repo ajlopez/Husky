@@ -52,6 +52,9 @@
             if (ch == '"')
                 return this.NextString();
 
+            if (ch == '`')
+                return this.NextBackquotedOperator();
+
             if (!char.IsLetterOrDigit(ch)) 
             {
                 Token token = this.NextOperatorDelimiter(ch);
@@ -106,6 +109,23 @@
                 throw new LexerException("Unclosed string");
 
             Token token = new Token(value, TokenType.String);
+
+            return token;
+        }
+
+        private Token NextBackquotedOperator()
+        {
+            string value = string.Empty;
+
+            while (this.position < this.length && this.text[this.position] != '`')
+                value += this.text[this.position++];
+
+            if (this.position < this.length)
+                this.position++;
+            else
+                throw new LexerException("Unclosed operator");
+
+            Token token = new Token(value, TokenType.Operator);
 
             return token;
         }

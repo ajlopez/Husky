@@ -1,9 +1,6 @@
 ﻿namespace Husky.Tests.Compiler
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using Husky.Compiler;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -169,6 +166,20 @@
 
             Assert.IsNotNull(token);
             Assert.AreEqual("+", token.Value);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetBackquotedNameOperator()
+        {
+            Lexer lexer = new Lexer("`mod`");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("mod", token.Value);
             Assert.AreEqual(TokenType.Operator, token.Type);
 
             Assert.IsNull(lexer.NextToken());
