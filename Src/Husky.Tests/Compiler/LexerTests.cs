@@ -155,6 +155,26 @@
         }
 
         [TestMethod]
+        public void GetNameAndOperator()
+        {
+            Lexer lexer = new Lexer("foo+");
+
+            var token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("foo", token.Value);
+            Assert.AreEqual(TokenType.Name, token.Type);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual("+", token.Value);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetPlusAsArithmeticOperator()
         {
             Lexer lexer = new Lexer("+");
