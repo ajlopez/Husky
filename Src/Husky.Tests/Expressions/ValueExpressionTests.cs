@@ -95,7 +95,7 @@
         [TestMethod]
         public void InvalidOperationIfMapToNonCompatibleType()
         {
-            var expr = new DoubleExpression(3.14159);
+            var expr = new RealExpression(3.14159);
             var vexpr = new ValueExpression(IntegerType.Instance);
 
             try

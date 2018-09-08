@@ -10,11 +10,11 @@
         [TestMethod]
         public void Match()
         {
-            Assert.IsFalse(DoubleType.Instance.Match(null));
-            Assert.IsFalse(DoubleType.Instance.Match(IntegerType.Instance));
-            Assert.IsFalse(DoubleType.Instance.Match(new MapType(IntegerType.Instance, DoubleType.Instance)));
+            Assert.IsFalse(RealType.Instance.Match(null));
+            Assert.IsFalse(RealType.Instance.Match(IntegerType.Instance));
+            Assert.IsFalse(RealType.Instance.Match(new MapType(IntegerType.Instance, RealType.Instance)));
 
-            Assert.IsTrue(DoubleType.Instance.Match(DoubleType.Instance));
+            Assert.IsTrue(RealType.Instance.Match(RealType.Instance));
         }
     }
 }

@@ -11,8 +11,8 @@
         public void Match()
         {
             Assert.IsFalse(StringType.Instance.Match(null));
-            Assert.IsFalse(StringType.Instance.Match(DoubleType.Instance));
-            Assert.IsFalse(StringType.Instance.Match(new MapType(StringType.Instance, DoubleType.Instance)));
+            Assert.IsFalse(StringType.Instance.Match(RealType.Instance));
+            Assert.IsFalse(StringType.Instance.Match(new MapType(StringType.Instance, RealType.Instance)));
 
             Assert.IsTrue(StringType.Instance.Match(StringType.Instance));
         }

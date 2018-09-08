@@ -27,7 +27,7 @@
             var expr = new IntegerExpression(42);
             var expr1 = new IntegerExpression(42);
             var expr2 = new IntegerExpression(3);
-            var expr3 = new DoubleExpression(1.2);
+            var expr3 = new RealExpression(1.2);
 
             Assert.IsTrue(expr.Match(expr, null));
             Assert.IsTrue(expr.Match(expr1, null));
@@ -38,21 +38,21 @@
         }
 
         [TestMethod]
-        public void GetDoubleConstant()
+        public void GetRealConstant()
         {
-            var expr = new DoubleExpression(3.14159);
+            var expr = new RealExpression(3.14159);
 
             Assert.AreEqual(3.14159, expr.Value);
-            Assert.AreSame(DoubleType.Instance, expr.Type);
+            Assert.AreSame(RealType.Instance, expr.Type);
             Assert.AreSame(expr, expr.Reduce());
         }
 
         [TestMethod]
-        public void MatchDoubleConstant()
+        public void MatchRealConstant()
         {
-            var expr = new DoubleExpression(1.2);
-            var expr1 = new DoubleExpression(1.2);
-            var expr2 = new DoubleExpression(3.4);
+            var expr = new RealExpression(1.2);
+            var expr1 = new RealExpression(1.2);
+            var expr2 = new RealExpression(3.4);
             var expr3 = new IntegerExpression(42);
 
             Assert.IsTrue(expr.Match(expr, null));
@@ -95,9 +95,9 @@
             var expr1 = new IntegerExpression(1);
             var expr2 = new IntegerExpression(2);
             var expr3 = new IntegerExpression(1);
-            var expr4 = new DoubleExpression(3.14159);
-            var expr5 = new DoubleExpression(1.2);
-            var expr6 = new DoubleExpression(3.14159);
+            var expr4 = new RealExpression(3.14159);
+            var expr5 = new RealExpression(1.2);
+            var expr6 = new RealExpression(3.14159);
             
             Assert.IsFalse(expr1.Equals(expr2));
             Assert.IsFalse(expr1.Equals(null));

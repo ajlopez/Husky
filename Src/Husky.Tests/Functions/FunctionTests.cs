@@ -31,7 +31,7 @@
 
             try
             {
-                func.Map(new DoubleExpression(1.2), new IntegerExpression(2));
+                func.Map(new RealExpression(1.2), new IntegerExpression(2));
                 Assert.Fail();
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@
 
             try
             {
-                func.Map(new IntegerExpression(1), new DoubleExpression(1.2));
+                func.Map(new IntegerExpression(1), new RealExpression(1.2));
                 Assert.Fail();
             }
             catch (Exception ex)

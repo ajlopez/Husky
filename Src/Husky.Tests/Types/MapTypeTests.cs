@@ -20,7 +20,7 @@
         public void Equality()
         {
             var type1 = new MapType(IntegerType.Instance, IntegerType.Instance);
-            var type2 = new MapType(IntegerType.Instance, DoubleType.Instance);
+            var type2 = new MapType(IntegerType.Instance, RealType.Instance);
             var type3 = new MapType(IntegerType.Instance, IntegerType.Instance);
 
             Assert.IsFalse(type1.Equals(null));
@@ -39,16 +39,16 @@
         [TestMethod]
         public void Match()
         {
-            var type = new MapType(IntegerType.Instance, DoubleType.Instance);
+            var type = new MapType(IntegerType.Instance, RealType.Instance);
 
             Assert.IsFalse(type.Match(null));
             Assert.IsFalse(type.Match(IntegerType.Instance));
-            Assert.IsFalse(type.Match(DoubleType.Instance));
+            Assert.IsFalse(type.Match(RealType.Instance));
 
-            Assert.IsFalse(type.Match(new MapType(DoubleType.Instance, DoubleType.Instance)));
+            Assert.IsFalse(type.Match(new MapType(RealType.Instance, RealType.Instance)));
             Assert.IsFalse(type.Match(new MapType(IntegerType.Instance, IntegerType.Instance)));
 
-            Assert.IsTrue(type.Match(new MapType(IntegerType.Instance, DoubleType.Instance)));
+            Assert.IsTrue(type.Match(new MapType(IntegerType.Instance, RealType.Instance)));
         }
     }
 }

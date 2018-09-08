@@ -35,8 +35,8 @@
             object value = machine.Context.GetType("Double");
 
             Assert.IsNotNull(value);
-            Assert.IsInstanceOfType(value, typeof(DoubleType));
-            Assert.AreSame(DoubleType.Instance, value);
+            Assert.IsInstanceOfType(value, typeof(RealType));
+            Assert.AreSame(RealType.Instance, value);
         }
 
         [TestMethod]

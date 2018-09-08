@@ -51,8 +51,8 @@
             var result = parser.ParseExpression();
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(DoubleExpression));
-            Assert.AreEqual(1.23, ((DoubleExpression)result).Value);
+            Assert.IsInstanceOfType(result, typeof(RealExpression));
+            Assert.AreEqual(1.23, ((RealExpression)result).Value);
 
             Assert.IsNull(parser.ParseExpression());
         }

@@ -33,7 +33,7 @@
         {
             var vexpr = new ConstructorValueExpression(IntegerType.Instance);
             var vexpr2 = new ConstructorValueExpression(IntegerType.Instance);
-            var vexpr3 = new ConstructorValueExpression(DoubleType.Instance);
+            var vexpr3 = new ConstructorValueExpression(RealType.Instance);
 
             Assert.IsTrue(vexpr.Equals(vexpr));
             Assert.IsFalse(vexpr.Equals(vexpr2));

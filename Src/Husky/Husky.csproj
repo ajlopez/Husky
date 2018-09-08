@@ -54,12 +54,13 @@
     <Compile Include="Expressions\BooleanExpression.cs" />
     <Compile Include="Expressions\TypeExpression.cs" />
     <Compile Include="Expressions\StringExpression.cs" />
-    <Compile Include="Expressions\DoubleExpression.cs" />
+    <Compile Include="Expressions\RealExpression.cs" />
     <Compile Include="Expressions\FunctionalExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Expressions\IntegerExpression.cs" />
     <Compile Include="Expressions\NameExpression.cs" />
     <Compile Include="Expressions\ValueExpression.cs" />
+    <Compile Include="Functions\AddRealsFunction.cs" />
     <Compile Include="Functions\AddIntegersFunction.cs" />
     <Compile Include="Functions\ConstructorFunction.cs" />
     <Compile Include="Functions\SubtractIntegersFunction.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Types\BooleanType.cs" />
     <Compile Include="Types\NamedType.cs" />
     <Compile Include="Types\StringType.cs" />
-    <Compile Include="Types\DoubleType.cs" />
+    <Compile Include="Types\RealType.cs" />
     <Compile Include="Types\IntegerType.cs" />
     <Compile Include="Types\IType.cs" />
     <Compile Include="Types\MapType.cs" />
