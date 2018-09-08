@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
 
+    [Serializable]
     public class LexerException : Exception
     {
         public LexerException(string message)
